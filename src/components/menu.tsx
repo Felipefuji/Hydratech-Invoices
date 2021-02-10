@@ -19,7 +19,11 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import EuroIcon from '@material-ui/icons/Euro';
 import BuildIcon from '@material-ui/icons/Build';
-
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
+import MoneyIcon from '@material-ui/icons/Money';
+import StoreIcon from '@material-ui/icons/Store';
+import CreditCardIcon from '@material-ui/icons/CreditCard';
 
 const drawerWidth = 240;
 
@@ -135,18 +139,19 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-          {['Reporte', 'Ingresos', 'Gastos', 'Configuración'].map((text, index) => (
-            <ListItem button key={text}>
-             <ListItemIcon>{index % 2 === 0 ? <EuroIcon/> : <BuildIcon/>}</ListItemIcon> 
+          {['Reporte', 'Ingresos', 'Gastos', 'Configuración'].map((text,index) => (
+            <ListItem button >
+            <ListItemIcon>{index == 0 ? <EuroIcon/> : index == 3 ? <BuildIcon/> : index == 2 ? <RemoveIcon/> : <AddIcon/> } </ListItemIcon> 
             <ListItemText primary={text} />
             </ListItem>
+            
           ))}
         </List>
         <Divider />
         <List>
           {['Pago tarjeta', 'Pago en efectivo', 'Dinero caja'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{index == 0 ? <CreditCardIcon/> : index == 1 ? <MoneyIcon/> : <StoreIcon/> }</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
@@ -158,8 +163,7 @@ export default function PersistentDrawerLeft() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <div id="grid"></div>
-       
+        <div id="grid"></div> 
       </main>
     </div>
   );
