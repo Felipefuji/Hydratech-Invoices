@@ -20,6 +20,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import EuroIcon from '@material-ui/icons/Euro';
 import BuildIcon from '@material-ui/icons/Build';
 
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -136,7 +137,7 @@ export default function PersistentDrawerLeft() {
         <List>
           {['Reporte', 'Ingresos', 'Gastos', 'Configuración'].map((text, index) => (
             <ListItem button key={text}>
-             <ListItemIcon>{index % 2 === 0 ? <EuroIcon /> : <BuildIcon/>} </ListItemIcon> 
+             <ListItemIcon>{index % 2 === 0 ? <EuroIcon/> : <BuildIcon/>}</ListItemIcon> 
             <ListItemText primary={text} />
             </ListItem>
           ))}
@@ -157,10 +158,8 @@ export default function PersistentDrawerLeft() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
-        </Typography>
-        <Typography paragraph>
-        </Typography>
+        <div id="grid"></div>
+       
       </main>
     </div>
   );
